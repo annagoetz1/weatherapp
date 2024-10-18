@@ -12,7 +12,22 @@ async function getWeather () {
 
 const data = await response.json();
 
-console.log(data);
+const basicWeather = {
+  location: data.resolvedAddress,
+  description: data.description,
+  currentTemp: data.currentConditions.temp,
+  feelsLike: data.currentConditions.feelslike,
+  conditions: data.currentConditions.conditions,
+  windSpeed: data.currentConditions.windspeed,
+  windGust: data.currentConditions.windgust,
+  sunrise: data.currentConditions.sunrise,
+  sunset: data.currentConditions.sunset,
+  humidity: data.currentConditions.humidity,
+};
+
+// Log the basic weather information
+console.log(basicWeather);
+
 
     }
     catch (error) {
