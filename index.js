@@ -18,11 +18,7 @@ const basicWeather = {
   currentTemp: data.currentConditions.temp,
   feelsLike: data.currentConditions.feelslike,
   conditions: data.currentConditions.conditions,
-  windSpeed: data.currentConditions.windspeed,
-  windGust: data.currentConditions.windgust,
-  sunrise: data.currentConditions.sunrise,
-  sunset: data.currentConditions.sunset,
-  humidity: data.currentConditions.humidity,
+ 
 };
 
 // Log the basic weather information
@@ -34,4 +30,8 @@ console.log(basicWeather);
       console.error('Error fetching data', error);
     }}
 
+
 button.addEventListener('click', getWeather);
+
+const div = document.getElementById('weatherInfo');
+div.textContent = 'Today in ${basicWeather.location}, it is ${basicWeather.currentTemp}, feeling like ${basicWeather.feelsLike}, with ${basicWeather.conditions}. ';
