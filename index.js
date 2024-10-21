@@ -24,7 +24,9 @@ const basicWeather = {
 // Log the basic weather information
 console.log(basicWeather);
 
-
+   // Update the text content of the div with the fetched data
+   const div = document.getElementById('weatherInfo');
+   div.textContent = `Today in ${basicWeather.location}, it is ${basicWeather.currentTemp}°C, feeling like ${basicWeather.feelsLike}°C, with ${basicWeather.conditions}.`;
     }
     catch (error) {
       console.error('Error fetching data', error);
@@ -33,5 +35,4 @@ console.log(basicWeather);
 
 button.addEventListener('click', getWeather);
 
-const div = document.getElementById('weatherInfo');
-div.textContent = 'Today in ${basicWeather.location}, it is ${basicWeather.currentTemp}, feeling like ${basicWeather.feelsLike}, with ${basicWeather.conditions}. ';
+
