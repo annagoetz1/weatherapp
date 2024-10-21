@@ -26,7 +26,7 @@ console.log(basicWeather);
 
    // Update the text content of the div with the fetched data
    const div = document.getElementById('weatherInfo');
-   div.textContent = `Today in ${basicWeather.location}, it is ${basicWeather.currentTemp}°C, feeling like ${basicWeather.feelsLike}°C, with ${basicWeather.conditions}.`;
+   div.textContent = `Today in ${basicWeather.location}, it is ${basicWeather.currentTemp}°C, feeling like ${basicWeather.feelsLike}°C, conditions are ${basicWeather.conditions}.`;
     }
     catch (error) {
       console.error('Error fetching data', error);
