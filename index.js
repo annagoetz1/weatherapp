@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   async function getWeather(location = 'Pittsburgh') {
     try {
-      const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=6MRGX7QE8HMREHVGNPMQWUV6L&contentType=json`, {
+      const encodedLocation = encodeURIComponent(location.toLowerCase());
+      const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodedLocation}?unitGroup=metric&key=6MRGX7QE8HMREHVGNPMQWUV6L&contentType=json`, {
         mode: 'cors'
       });
 
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   form.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from refreshing the page
-    const location = document.getElementById('locationInput').value; // Get user input
+    const location = document.getElementById('locationInput').value.trim(); // Get user input
     getWeather(location || 'Pittsburgh'); // Fetch weather for user input or default to Pittsburgh if input is empty
   });
 });
