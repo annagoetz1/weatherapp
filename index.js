@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         description: data.description,
         currentTemp: data.currentConditions.temp,
         feelsLike: data.currentConditions.feelslike,
-        conditions: data.currentConditions.conditions,
+        conditions: data.currentConditions.conditions.toLowerCase(),
       };
 
       // Update the text content of the div with the fetched data
