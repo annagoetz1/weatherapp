@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error('Error fetching data', error);
     }
     finally {
-      // Hide loading indicator after the fetch is complete or error occurs
+      // Hide loading indicator after the fetch is complete or if error occurs
       loadingDiv.style.display = 'none';
   }
 }
