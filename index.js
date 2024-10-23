@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('locationForm');
+  const loadingDiv = document.getElementById('loading');
+  const weatherInfoDiv = document.getElementById('weatherInfo');
 
   async function getWeather(location = 'Pittsburgh') {
     try {
+       // Show loading indicator
+       loadingDiv.style.display = 'block';
+       weatherInfoDiv.textContent = ''; // Clear previous weather data
       const encodedLocation = encodeURIComponent(location.toLowerCase());
       const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodedLocation}?unitGroup=metric&key=6MRGX7QE8HMREHVGNPMQWUV6L&contentType=json`, {
         mode: 'cors'
@@ -29,7 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
       console.error('Error fetching data', error);
     }
+    finally {
+      // Hide loading indicator after the fetch is complete or error occurs
+      loadingDiv.style.display = 'none';
   }
+}
 
   form.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from refreshing the page
