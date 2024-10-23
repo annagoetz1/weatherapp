@@ -1,8 +1,4 @@
-#getWeatherButton {
-width: 200px;
-height: 100px;
-background-color: grey;
-border: 4px black;
+body {
 display: flex;
 justify-content: center;
 align-items: center;
